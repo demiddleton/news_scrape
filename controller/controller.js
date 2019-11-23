@@ -13,11 +13,11 @@ router.get("/", function(req, res) {
 });
 
 router.get("/scrape", function(req, res) {
-  request("https://allthatsinteresting.com/", function(error, response, html) {
+  request("https://www.billboard.com/news", function(error, response, html) {
     var $ = cheerio.load(html);
     var titlesArray = [];
 
-    $(".css-1dbjc4n").each(function(i, element) {
+    $("h3").each(function(i, element) {
       var result = {};
 
       result.title = $(this)
